@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Damp</title>
+<title>Damp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
+<body class="grey lighten-2">
+<header>
+  <%= render "layouts/nav" %>
+</header>
+<main>
+  <div class="container z-depth-2 white main">
+    <%= yield %>
+  </div>
+</main>
+<footer>
+  <%= render "layouts/footer" %>
+</footer>
 
 </body>
 </html>
