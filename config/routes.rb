@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+
+  root "static_pages#home"
+
+  get 'damp-proofing-specialists' => 'static_pages#home'
+  get 'services'                  => 'static_pages#services'
+  get 'rising-damp' 		  => 'static_pages#rising_damp'
+  get 'penetrating-damp' 	  => 'static_pages#penetrating_damp'
+  get 'rot' 			  => 'static_pages#rot'
+  get 'flood-leak-damage'	  => 'static_pages#flood_leak_damage'
+  get 'basement-conversions'	  => 'static_pages#basement_conversion'
+  get 'monocouche-rendering'	  => 'static_pages#monocouche_render'
+  get 'woodworm-treatment'	  => 'static_pages#woodworm_treatment'
+  get 'plastering'		  => 'static_pages#plastering'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
