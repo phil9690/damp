@@ -8,12 +8,13 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body class="grey lighten-2">
+<body class="grey lighten-5">
 <header>
+  <%= render "layouts/contact_info" %>
   <%= render "layouts/nav" %>
 </header>
 <main>
-  <div class="container z-depth-2 white main">
+  <div class="container">
     <%= yield %>
   </div>
 </main>
