@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+  business_name: "The Damp Doctor"
+  address_line_1: "35 Bamborough Court"
+  address_line_2: "Dudley"
+  address_line_3: "Cramlington"
+  county: "North Tyneside"
+  post_code: "NE23 7HW"
+  mobile_number: "07980314389"
+  office_number: "01670 738 279"
+  email: "contact@thedampdoctor.co.uk"
+

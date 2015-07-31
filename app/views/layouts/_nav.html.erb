@@ -1,63 +1,48 @@
-
-<a href="#" data-activates="mobile-nav" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
-<ul class="side-nav" id="mobile-nav">
-  <li class="logo"><%= image_tag "logo.svg" %></li>
-
-  <ul class="collapsible" data-collapsible="accordion">
-    <li>
-    <a class="collapsible-header waves-effect waves-teal">Services</a>
-    <div class="collapsible-body">
-      <ul>
-        <li><%= link_to "T-shirt printing", "" %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Wet and dry rot treatment", "" %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Sublimation printing", "" %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Display printing", "" %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Charity vests", "" %></li>
+<div class="navbar-fixed">
+  <nav class="blue lighten-2" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+      <%= link_to root_path do %>  
+        <%= image_tag "logo", class: "logo" %>
+        <% end %>
+      <ul class="right hide-on-med-and-down">
+        <li class="active"><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Services", services_path %></li>
+        <li><%= link_to "Contact us", contact_path %></li>
       </ul>
-    </div>
-    </li>
-  </ul>
-
-  <li><a href="sass.html">Sass</a></li>
-  <li><a href="badges.html">Components</a></li>
-  <li><a href="collapsible.html">Javascript</a></li>
-  <li><a href="mobile.html">Mobile</a></li>
-</ul>
-
-<ul class="side-nav blue lighten-2 fixed hide-on-med-and-down">
-  <li class="logo"><%= image_tag "logo.svg" %></li>
-  <li class="divider"></li>
-  <li class="active"><%= link_to "Home", root_path %></li>
-   <ul class="collapsible" data-collapsible="accordion">
-      <li>
-        <a class="collapsible-header">Services</a>
-        <div class="collapsible-body">
-          <ul>
-            <li><%= link_to "Rising damp treatment", rising_damp_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Penetrating damp treatment", penetrating_damp_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Wet rot and dry rot treatment", rot_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Flood and leak damage", flood_leak_damage_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Basement conversions", basement_conversions_path  %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Monocouche rendering", monocouche_rendering_path  %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Woodworm treatment", woodworm_treatment_path  %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Plastering", plastering_path  %></li>
+      <ul class="side-nav" id="mobile-nav">
+        <li><%= link_to "Home", root_path %></li>
+        <li class="divider"></li>
+        <ul class="collapsible" data-collapsible="accordion">
+          <li>
+            <a class="collapsible-header waves-effect waves-blue">Services</a>
+            <div class="collapsible-body">
+              <ul>
+                <li><%= link_to "Rising damp treatment", rising_damp_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Penetrating damp treatment", penetrating_damp_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Wet rot and dry rot treatment", rot_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Flood and leak damage", flood_leak_damage_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Basement conversions", basement_conversions_path  %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Monocouche rendering", monocouche_rendering_path  %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Woodworm treatment", woodworm_treatment_path  %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Plastering", plastering_path  %></li>
+              </ul>
+            </div>
+            </li>
           </ul>
-        </div>
-      </li>
-    </ul>
-    <li class="divider"></li>
-    <li><%= link_to "Contact us", "#" %></li>
-    <li class="divider"></li>
-</ul>
+          <li class="divider"></li>
+          <li><%= link_to "Contact us", contact_path %></li>
+          <li class="divider"></li>
+        </ul>
+    </div>
+  </nav>
+</div>
+
 
