@@ -6,8 +6,6 @@ class StaticPagesController < ApplicationController
   def services
   end
 
-  def contact
-
   def damp_proofing
   end
 
