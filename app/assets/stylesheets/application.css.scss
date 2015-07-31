@@ -78,6 +78,23 @@ main {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .social-links {
+    text-align: center;
+    width: 3.3em;
+    margin: 0 auto;
+    i {
+      float: none;
+    }
+    a {
+      text-align: center;
+    }
+    span {
+      text-align: center;
+    }
+  }
+}
+
 .social-links {
   i {
     font-size: 1.1em;
