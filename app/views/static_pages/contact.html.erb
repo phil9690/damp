@@ -1,7 +1,8 @@
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+<% provide(:title, "Contact The Damp Doctor") %> 
+
 <script>
 function initialize() {
-  var myLatlng = new google.maps.LatLng(54.964213,-1.554565);
+  var myLatlng = new google.maps.LatLng(55.056997,-1.593596);
   var mapOptions = {
 zoom: 9,
       center: myLatlng
@@ -11,57 +12,105 @@ zoom: 9,
   var marker = new google.maps.Marker({
 position: myLatlng,
 map: map,
-title: 'FranklinPrint'
+title: 'The Damp Doctor'
 });
 }
 
 google.maps.event.addDomListener(window, 'page:load', initialize);
-google.maps.event.addDomListener(window, 'load', initialize);
 
 </script>
 <div class="contact">
   <h5>Contact</h5>
-  <h6>drop us an email or give us a call</h6>
+  <h6>Call or send an email if you have any queries or to request a free survey</h6>
   <hr>
   <div class="row">
     <div class="col s12 m6 l6">
       <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">person</i>
-              <input id="name" type="text" class="validate">
-              <label for="name">Name</label>
+        <%= form_tag('contact', class: "col s12") do %>
+
+          <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            <% end %>
+          <% end %>
+
+        <% if @contact.errors.any? %>
+          <div id="error_explanation">
+            <div class="alert alert-danger">
+              The form contains <%= pluralize(@contact.errors.count, "error") %>.
             </div>
+            <ul>
+              <% @contact.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">email</i>
-              <input id="email" type="email" class="validate">
-              <label for="email">E-Mail</label>
-            </div>
+        <% end %>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person</i>
+            <%= text_field :contact, :name %>
+            <%= label :name, "Name:" %>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">phone</i>
-              <input id="phone_number" type="number" class="validate">
-              <label for="phone_number">Phone number</label>
-            </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <%= label :email, "Email:" %>
+            <%= email_field :contact, :email %>
           </div>
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea class="materialize-textarea" placeholder="Your Message" required></textarea>
-          <button class="btn-large orange waves-effect waves-light" type="submit" name="action">Send
-            <i class="mdi-content-send right"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="col s12 m6 l6 contact-holder">
-      <h6 class="mdi-action-home">Address</h6>
-      <p>123 Fake Street, City, Country, Post Code</p>
-      <h6 class="mdi-hardware-phone-android">Phone Number</h6>
-      <p>123456789</p>
-      <div id="map-canvas" class="z-depth-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">phone</i>
+            <%= label :phone, "Phone number" %>
+            <%= email_field :contact, :phone %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <%= text_area :contact, :body, class: "materialize-textarea", placeholder: "Your Message" %>
+          </div>
+        </div>
+
+        <div class="hide">
+          <%= label :nickname, "Nickname:" %>
+          <%= text_field :contact, :nickname %>
+        </div>
+
+      
+
+        <button class="btn-large orange waves-effect waves-light" type="submit" name="action">Send
+          <i class="mdi-content-send right"></i>
+        </button>
+      </form>
     </div>
   </div>
+
+  <div class="col s12 m6 l6 contact-holder">
+    <h6 class="mdi-action-home">Address</h6>
+    <p><%= t(:address_line_1)%>, <%= t(:address_line_2) %>, <%= t(:address_line_3) %>, <%= t(:county) %>, <%= t(:post_code) %></p>
+    <h6 class="mdi-maps-local-phone">Office Number</h6>
+    <p><%= t(:office_number) %></p>
+    <h6 class="mdi-hardware-phone-android">Mobile Number</h6>
+    <p><%= t(:mobile_number) %></p>
+    <h6 class="mdi-content-mail">Email</h6>
+    <p><%= t(:email) %></p>
+    <div id="map-canvas" class="z-depth-4"></div>
+  </div>
 </div>
+</div>
+
+<% end %>
+
+<script>
+var $viewportMeta = $('meta[name="viewport"]');
+$('input, select, textarea').bind('focus blur', function(event) {
+    $viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=' +        (event.type == 'blur' ? 10 : 1));
+    });
+</script>
