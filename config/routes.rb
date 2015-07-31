@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'contacts/new'
+
   root "static_pages#home"
 
   get 'damp-proofing-specialists' => 'static_pages#home'
@@ -14,7 +16,8 @@ Rails.application.routes.draw do
   get 'woodworm-treatment'	  => 'static_pages#woodworm_treatment'
   get 'plastering'		  => 'static_pages#plastering'
 
-  get 'contact'                   => 'static_pages#contact'
+  get 'contact'                   => 'contacts#new'
+  post 'contact'                   => 'contacts#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
